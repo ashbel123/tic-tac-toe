@@ -10,11 +10,18 @@ const Square = ({value,SquareClick}) => {
 
 };
 const Board = () => { 
+  const [xIsNext, setXIsNext] = useState(true);
   const [squares, setSquares] = useState(Array(9).fill(null));
   const HandleClick = (i) => {
     const nextSquares = squares.slice();
-    nextSquares[i] = "x";
+    if (xIsNext) {
+      nextSquares[i] = "x";
+    }
+    else {
+          nextSquares[i] = "o";
+        }
     setSquares(nextSquares);
+    setXIsNext(!xIsNext);
   }
   return (
     <>
