@@ -13,6 +13,9 @@ const Board = () => {
   const [xIsNext, setXIsNext] = useState(true);
   const [squares, setSquares] = useState(Array(9).fill(null));
   const HandleClick = (i) => {
+    if (squares[i]) {
+      return;
+    }
     const nextSquares = squares.slice();
     if (xIsNext) {
       nextSquares[i] = "x";
